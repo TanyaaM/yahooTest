@@ -24,12 +24,13 @@ m.setText(password, 'M@gicworld06')
 m.clickElement(nextPwdBtn)
 String actualHomePageTitle =WebUI.getWindowTitle()
 if(actualHomePageTitle.equals(expectedHomePageTitle)) {
-	KeywordUtil.logInfo('User landed to expected home page'+actualHomePageTitle)
+	KeywordUtil.markPassed('User landed to expected home page'+actualHomePageTitle)
 	m.clickElement(mailIcon)
 }else {
 	WebUI.takeScreenshot()
 	KeywordUtil.markFailed('User is not landed to home page'+actualHomePageTitle)
 }
+m.closeBrowser()
 
 
 

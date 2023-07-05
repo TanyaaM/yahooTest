@@ -1,13 +1,16 @@
 {
-  "keywordFileContentHash": "5F83177585102ED780B0783C0C6BCD50",
+  "keywordFileContentHash": "7130B87C45590D87CBDB610FBC37C84F",
   "keywordClasses": [
     {
       "name": "yahooPage.Mail",
       "keywordMethods": [
         {
           "name": "openBrowser",
-          "parameters": [],
-          "javadoc": ""
+          "parameters": []
+        },
+        {
+          "name": "closeBrowser",
+          "parameters": []
         },
         {
           "name": "clickElement",
@@ -25,8 +28,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "setText",
@@ -57,48 +59,10 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
-        },
-        {
-          "name": "refreshBrowser",
-          "parameters": [],
-          "javadoc": ""
-        },
-        {
-          "name": "getHtmlTableRows",
-          "parameters": [
-            {
-              "name": "table",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
-                "unresolvedClassName": "TestObject",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            },
-            {
-              "name": "outerTagName",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
-          "javadoc": ""
+          ]
         }
       ]
     }
   ],
-  "javadocParsed": true
+  "javadocParsed": false
 }

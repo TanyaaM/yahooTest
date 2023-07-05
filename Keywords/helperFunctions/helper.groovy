@@ -27,7 +27,8 @@ public class Helper {
 	 * This function generates a random username by combining a random adjective and noun 
 	 * from predefined lists and appending a random number between 0 and 100.
 	 */
-	String generateRandomUsername() {
+	@Keyword
+	def String generateRandomUsername() {
 		def adjectives = [
 			'android',
 			'ios',
@@ -58,4 +59,20 @@ public class Helper {
 
 		return "${adjective}${noun}${number}"
 	}
+	/*
+	 * This function will generate password for user by default the length of password is set to 12
+	 */
+	@Keyword
+	def String generatePassword(int length = 12) {
+		def characters = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()').toCharArray()
+		def password = new StringBuilder()
+	
+		for (int i = 0; i < length; i++) {
+			def randomIndex = new Random().nextInt(characters.length)
+			password.append(characters[randomIndex])
+		}
+	
+		return password.toString()
+	}
+	
 }

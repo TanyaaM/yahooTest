@@ -1,28 +1,60 @@
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
-import com.kms.katalon.core.testobject.TestObject
-import yahooPage.Mail
 
+import com.kms.katalon.core.model.FailureHandling
+import com.kms.katalon.core.testobject.TestObject
+import com.kms.katalon.core.util.KeywordUtil
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
+
+import yahooPage.Mail
+import helperFunctions.Helper
 Mail m =new Mail()
+Helper h =new Helper()
 
 TestObject signIn = findTestObject('web/loginPage/signInLink')
 TestObject nextBtn = findTestObject('web/loginPage/nextBtn')
 TestObject username = findTestObject('web/loginPage/usernameField')
 TestObject forgotPassword = findTestObject('web/loginPage/forgotPwd')
-TestObject sendCodeButton = findTestObject('web/forgotPasswordPage/sendCodeBtn')
-TestObject password = findTestObject('web/loginPage/passwordField')
+TestObject newPassword = findTestObject('web/loginPage/passwordField')
+TestObject emailCodeBtn =findTestObject('web/forgotPasswordPage/emailCode')
+TestObject recoveryMail =findTestObject('web/forgotPasswordPage/recoveryMailField')
+TestObject sendButton =findTestObject('web/forgotPasswordPage/sendBtn')
+TestObject verifyCode =findTestObject('web/forgotPasswordPage/verifyCodeBtn')
+TestObject continueButton=findTestObject('web/forgotPasswordPage/continueBtn')
+TestObject successMsg=findTestObject('web/forgotPasswordPage/successfullMsg')
+TestObject looksGoodButton =findTestObject('web/forgotPasswordPage/looksGoodBtn')
+TestObject continueAgainButton =findTestObject('web/forgotPasswordPage/continueAgainBtn')
 
 m.openBrowser()
+String newGeneratedPassword =h.generatePassword(12)
+KeywordUtil.logInfo('New password generated is'+newGeneratedPassword)
 m.clickElement(signIn)
-m.setText(username, 'tanyamahajan06@yahoo.com')
+m.setText(username, 'tabtest110@yahoo.com')
 m.clickElement(nextBtn)
 m.clickElement(forgotPassword)
-m.clickElement(sendCodeButton)
-//Passing harddelay because Manual intervention is needed to enter the otp
-Thread.sleep(20000)
-m.setText(password, 'Automation@2023')
-
-
-
-//*[@name='verifyDigits']
-//*[@name='sendCode']
-//*[contains(text(),'Enter verification')]
+m.clickElement(emailCodeBtn)
+m.setText(recoveryMail, 'tanya123mahajan@gmail.com')
+m.clickElement(sendButton)
+//Passing hard delay to enter otp
+Thread.sleep(30000)
+m.clickElement(verifyCode)
+m.setText(newPassword, newGeneratedPassword)
+m.clickElement(continueButton)
+if(WebUI.verifyElementPresent(successMsg, 10, FailureHandling.OPTIONAL)) {
+	String actualSuccessMessage =WebUI.getText(successMsg)
+	KeywordUtil.logInfo('Password is updated successfully'+actualSuccessMessage)
+	WebUI.takeScreenshot()
+	m.clickElement(continueAgainButton)
+	m.clickElement(looksGoodButton)
+	String actualLandingPageTitle =WebUI.getWindowTitle()
+	String expectedLandingPageTitle ="Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports & Videos"
+	if(actualLandingPageTitle.equals(expectedLandingPageTitle)) {
+		KeywordUtil.markPassed('User landed to expected home page after changing the password'+actualLandingPageTitle)
+	}else {
+		WebUI.takeScreenshot()
+		KeywordUtil.markFailed('User is not landed to expected home page after changing the password'+actualLandingPageTitle)
+	}
+} else {
+	WebUI.takeScreenshot()
+	KeywordUtil.markFailed('Password is not updated successfully')
+}
+m.closeBrowser()

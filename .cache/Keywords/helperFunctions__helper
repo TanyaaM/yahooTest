@@ -1,9 +1,36 @@
 {
-  "keywordFileContentHash": "28A68CADCF69729915A109A843B31776",
+  "keywordFileContentHash": "E08E88795B6C8AE537DEBB008BA52D21",
   "keywordClasses": [
     {
       "name": "helperFunctions.Helper",
-      "keywordMethods": []
+      "keywordMethods": [
+        {
+          "name": "generateRandomUsername",
+          "parameters": []
+        },
+        {
+          "name": "generatePassword",
+          "parameters": [
+            {
+              "name": "length",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "generatePassword",
+          "parameters": []
+        }
+      ]
     }
   ],
   "javadocParsed": false
