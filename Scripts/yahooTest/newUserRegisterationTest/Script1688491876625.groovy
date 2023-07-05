@@ -36,7 +36,8 @@ WebUI.selectOptionByIndex(monthList, 2)
 m.setText(dayField,'1')
 m.setText(yearField,'1990')
 m.clickElement(continueButton)
-m.setText(phoneField,'7018617821')
+//User have to pass a valid contact number
+m.setText(phoneField,'7894561230')
 m.clickElement(continueButton)
 //keeping hard delay as manual intervention is needed as proof you are not robot/captcha validation is present that cant be automated   
 Thread.sleep(30000)

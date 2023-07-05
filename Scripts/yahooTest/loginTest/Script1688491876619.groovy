@@ -18,9 +18,9 @@ TestObject mailIcon = findTestObject('web/loginPage/mailIcon')
 String expectedHomePageTitle ="Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports & Videos"
 m.openBrowser()
 m.clickElement(signIn)
-m.setText(username, 'tanyamahajan06@yahoo.com')
+m.setText(username, 'androidmweb49@yahoo.com')
 m.clickElement(nextBtn)
-m.setText(password, 'M@gicworld06')
+m.setText(password, 'Automation@2023')
 m.clickElement(nextPwdBtn)
 String actualHomePageTitle =WebUI.getWindowTitle()
 if(actualHomePageTitle.equals(expectedHomePageTitle)) {
