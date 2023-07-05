@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>changeContinueBtn</name>
+   <name>successfullMsg</name>
    <tag></tag>
-   <elementGuidId>6f733552-8fbd-4a03-aba7-121cbb7c9b23</elementGuidId>
+   <elementGuidId>b2700a79-05c5-476e-bcc3-2336fdc2e88b</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>(//*[text()='Success!']/following-sibling::*)[1]</value>
+      </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
-      </entry>
-      <entry>
-         <key>XPATH</key>
-         <value>//*[@id='ch-pwd-submit-btn']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
